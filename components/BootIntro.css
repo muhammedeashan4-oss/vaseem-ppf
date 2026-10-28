@@ -1,0 +1,182 @@
+
+.boot-intro {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+  color: #f1f0ec;
+  background:
+    radial-gradient(ellipse at 50% 45%, rgba(25, 39, 61, 0.62), transparent 58%),
+    linear-gradient(135deg, #080b12 0%, #050608 55%, #000 100%);
+  opacity: 1;
+  visibility: visible;
+  transition:
+    opacity 800ms cubic-bezier(0.76, 0, 0.24, 1),
+    visibility 800ms;
+}
+
+.boot-intro--leaving {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.boot-intro__grain {
+  position: absolute;
+  inset: -50%;
+  pointer-events: none;
+  opacity: 0.12;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.3'/%3E%3C/svg%3E");
+  animation: boot-grain 350ms steps(2) infinite;
+}
+
+.boot-intro__content {
+  position: relative;
+  width: min(850px, 86vw);
+}
+
+.boot-intro__eyebrow {
+  margin: 0 0 clamp(28px, 5vh, 54px);
+  color: #8e9bad;
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.24em;
+  opacity: 0;
+  animation: boot-label 700ms 350ms ease forwards;
+}
+
+.boot-intro__words {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.boot-intro__line {
+  overflow: hidden;
+  padding: 2px 0 5px;
+}
+
+.boot-intro__word {
+  display: block;
+  width: max-content;
+  max-width: 100%;
+  font-size: clamp(34px, 7.5vw, 92px);
+  font-weight: 600;
+  line-height: 0.98;
+  letter-spacing: -0.075em;
+  white-space: nowrap;
+  transform: translate3d(
+    calc((2 - var(--line-index)) * 110vw),
+    calc((var(--line-index) - 1) * 80px),
+    0
+  ) rotateX(35deg);
+  filter: blur(12px);
+  opacity: 0;
+  animation: boot-word-arrive 1050ms cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  animation-delay: calc(250ms + var(--line-index) * 180ms);
+}
+
+.boot-intro__line:nth-child(2) .boot-intro__word {
+  transform: translate3d(-110vw, 50px, 0) rotateX(-35deg);
+}
+
+.boot-intro__line:nth-child(3) .boot-intro__word {
+  transform: translate3d(110vw, -50px, 0) rotateX(35deg);
+}
+
+.boot-intro__progress {
+  width: 100%;
+  height: 1px;
+  margin-top: clamp(34px, 6vh, 58px);
+  overflow: hidden;
+  background: rgba(255, 255, 255, 0.14);
+}
+
+.boot-intro__progress-fill {
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, #788da8, #fff);
+  transform: scaleX(0);
+  transform-origin: left;
+  animation: boot-progress 2.8s 700ms cubic-bezier(0.65, 0, 0.35, 1) forwards;
+}
+
+.boot-intro__footer {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  margin-top: 16px;
+  color: #6f7b8b;
+  font-size: 9px;
+  letter-spacing: 0.17em;
+  opacity: 0;
+  animation: boot-label 700ms 900ms ease forwards;
+}
+
+@keyframes boot-word-arrive {
+  0% {
+    opacity: 0;
+    filter: blur(12px);
+  }
+  65% {
+    opacity: 1;
+    filter: blur(0);
+  }
+  100% {
+    opacity: 1;
+    filter: blur(0);
+    transform: translate3d(0, 0, 0) rotateX(0);
+  }
+}
+
+@keyframes boot-label {
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes boot-progress {
+  to {
+    transform: scaleX(1);
+  }
+}
+
+@keyframes boot-grain {
+  0% { transform: translate(0, 0); }
+  25% { transform: translate(2%, -1%); }
+  50% { transform: translate(-1%, 2%); }
+  75% { transform: translate(1%, 1%); }
+  100% { transform: translate(-2%, -1%); }
+}
+
+@media (max-width: 480px) {
+  .boot-intro__content {
+    width: 88vw;
+  }
+
+  .boot-intro__word {
+    font-size: clamp(30px, 9vw, 44px);
+    letter-spacing: -0.065em;
+  }
+
+  .boot-intro__eyebrow {
+    font-size: 8px;
+    letter-spacing: 0.15em;
+  }
+
+  .boot-intro__footer {
+    font-size: 7px;
+    letter-spacing: 0.1em;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .boot-intro *,
+  .boot-intro {
+    animation-duration: 1ms !important;
+    animation-delay: 0ms !important;
+    transition-duration: 1ms !important;
+  }
+}
