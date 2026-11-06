@@ -2120,4 +2120,591 @@ textarea {
   );
 }
 
+/* ==========================================
+   MOBILE RESPONSIVE REDESIGN
+   Vaseem Portfolio
+   Desktop styles remain unchanged.
+========================================== */
+
+@media (max-width: 700px) {
+
+  /* ---------- GLOBAL ---------- */
+
+  html {
+    scroll-padding-top: 60px;
+  }
+
+  body {
+    overflow-x: hidden;
+  }
+
+  .immersive-site {
+    overflow: clip;
+  }
+
+
+  /* ---------- NAVIGATION ---------- */
+
+  .topbar {
+    position: absolute;
+    top: 0;
+    padding: 17px 6%;
+    min-height: 65px;
+    gap: 12px;
+  }
+
+  .wordmark {
+    font-size: 25px;
+  }
+
+  .topbar-caption {
+    display: none;
+  }
+
+  .topbar-link {
+    font-size: 8px;
+    gap: 7px;
+    white-space: nowrap;
+  }
+
+
+  /* ---------- BACKGROUND PORTRAIT ---------- */
+
+  .scene-stage {
+    position: fixed;
+    inset: 0;
+    opacity: 1;
+    overflow: hidden;
+  }
+
+  .scene-stage img {
+    position: absolute;
+    top: auto;
+    right: -7%;
+    bottom: 0;
+
+    width: 105%;
+    height: 68%;
+
+    object-fit: contain;
+    object-position: right bottom;
+
+    filter:
+      saturate(0.88)
+      brightness(1.04)
+      contrast(1.04);
+
+    opacity: 0.88;
+
+    -webkit-mask-image:
+      linear-gradient(
+        to bottom,
+        transparent 0%,
+        rgba(0, 0, 0, 0.15) 12%,
+        black 34%,
+        black 80%,
+        transparent 100%
+      );
+
+    mask-image:
+      linear-gradient(
+        to bottom,
+        transparent 0%,
+        rgba(0, 0, 0, 0.15) 12%,
+        black 34%,
+        black 80%,
+        transparent 100%
+      );
+  }
+
+
+  /* ---------- HERO BACKGROUND ---------- */
+
+  .hero-screen {
+    min-height: 100svh;
+    height: auto;
+
+    justify-content: flex-start;
+
+    padding:
+      clamp(145px, 23svh, 185px)
+      6%
+      115px;
+
+    overflow: hidden;
+  }
+
+  .hero-screen::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    pointer-events: none;
+
+    background:
+      linear-gradient(
+        90deg,
+        rgba(16, 22, 41, 0.96) 0%,
+        rgba(16, 22, 41, 0.82) 42%,
+        rgba(16, 22, 41, 0.38) 100%
+      ),
+      linear-gradient(
+        180deg,
+        #101629 0%,
+        rgba(16, 22, 41, 0.65) 25%,
+        rgba(16, 22, 41, 0.10) 55%,
+        rgba(16, 22, 41, 0.30) 78%,
+        #101629 100%
+      );
+  }
+
+
+  /* ---------- HERO META ---------- */
+
+  .hero-meta {
+    position: absolute;
+
+    top: 88px;
+    right: 6%;
+    left: 6%;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 10px;
+
+    font-size: 7px;
+    letter-spacing: 0.09em;
+  }
+
+  .live-indicator {
+    gap: 6px;
+    white-space: nowrap;
+  }
+
+  .live-indicator i {
+    width: 5px;
+    height: 5px;
+  }
+
+
+  /* ---------- HERO TITLE ---------- */
+
+  .hero-title {
+    position: relative;
+    z-index: 3;
+
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .micro-label {
+    font-size: 8px;
+    letter-spacing: 0.13em;
+    gap: 9px;
+  }
+
+  .micro-label::before {
+    width: 19px;
+  }
+
+  .hero-name-row {
+    display: block;
+    width: 100%;
+  }
+
+  .hero-name-row h1,
+  .hero-title h1 {
+    width: 100%;
+
+    margin: 20px 0 0;
+
+    font-family: "Space Grotesk", sans-serif;
+
+    font-size: clamp(43px, 11.5vw, 66px);
+
+    font-weight: 600;
+
+    line-height: 0.99;
+
+    letter-spacing: -0.075em;
+
+    overflow-wrap: normal;
+  }
+
+  .hero-name-row h1 .typed-surname {
+    white-space: nowrap;
+  }
+
+  .hero-title h1 span {
+    -webkit-text-stroke: 0.8px rgba(245, 247, 255, 0.95);
+  }
+
+  .hero-name-row .name-period,
+  .hero-title h1 b {
+    color: var(--accent);
+  }
+
+
+  /* ---------- HERO DESCRIPTION ---------- */
+
+  .hero-description-row {
+    display: flex;
+
+    flex-direction: column;
+    align-items: flex-start;
+
+    gap: 23px;
+
+    width: 100%;
+    max-width: 360px;
+
+    margin-top: 27px;
+  }
+
+  .hero-intro {
+    max-width: 330px;
+
+    font-size: 13px;
+    line-height: 1.8;
+
+    color: #d0d5e1;
+  }
+
+
+  /* ---------- MOUSER ROLE ---------- */
+
+  .hero-role {
+    display: flex;
+
+    align-items: stretch;
+
+    min-width: 0;
+
+    gap: 12px;
+  }
+
+  .role-dash {
+    width: 2px;
+    min-height: 55px;
+  }
+
+  .hero-role div {
+    gap: 6px;
+  }
+
+  .hero-role small {
+    font-size: 8px;
+    letter-spacing: 0.12em;
+  }
+
+  .hero-role strong {
+    font-size: 18px;
+    line-height: 1.3;
+  }
+
+
+  /* ---------- HERO BOTTOM LINE ---------- */
+
+  .hero-bottomline {
+    position: absolute;
+
+    right: 6%;
+    bottom: 24px;
+    left: 6%;
+
+    display: flex;
+
+    align-items: flex-end;
+    justify-content: space-between;
+
+    gap: 12px;
+
+    font-size: 7px;
+    line-height: 1.7;
+
+    letter-spacing: 0.07em;
+  }
+
+  .hero-bottomline > span {
+    max-width: 55%;
+  }
+
+  .hero-bottomline a {
+    gap: 7px;
+    white-space: nowrap;
+  }
+
+  .scroll-symbol {
+    font-size: 14px;
+  }
+
+  .hero-coordinate {
+    display: none;
+  }
+
+  .hero-portrait {
+    display: none !important;
+  }
+
+
+  /* ---------- STORY SECTIONS ---------- */
+
+  .story {
+    min-height: auto;
+    padding: 85px 7%;
+  }
+
+  .story-screen {
+    min-height: auto;
+    align-items: center;
+  }
+
+  .story-screen-right {
+    justify-content: flex-start;
+  }
+
+  .story-copy {
+    width: 100%;
+  }
+
+  .section-index {
+    margin-bottom: 35px;
+    font-size: 8px;
+  }
+
+  .section-eyebrow {
+    margin-bottom: 16px;
+    font-size: 9px;
+  }
+
+  .story-copy h2,
+  .outro-content h2 {
+    font-size: clamp(39px, 10vw, 58px);
+    line-height: 1.08;
+    letter-spacing: -0.05em;
+  }
+
+  .body-copy {
+    max-width: 100%;
+
+    margin-top: 22px;
+
+    font-size: 13px;
+    line-height: 1.85;
+  }
+
+  .underlined-link {
+    margin-top: 27px;
+    gap: 15px;
+  }
+
+
+  /* ---------- KEYWORDS ---------- */
+
+  .keyword-list {
+    gap: 8px;
+    margin-top: 25px;
+  }
+
+  .keyword-list span {
+    padding: 9px 11px;
+    font-size: 8px;
+    line-height: 1.5;
+  }
+
+
+  /* ---------- COMPANY SIGNATURE ---------- */
+
+  .company-signature {
+    gap: 13px;
+    margin-top: 30px;
+    padding-top: 20px;
+  }
+
+  .company-symbol {
+    width: 40px;
+    height: 40px;
+    font-size: 19px;
+    flex-shrink: 0;
+  }
+
+  .company-signature strong {
+    font-size: 17px;
+  }
+
+  .company-signature small {
+    font-size: 8px;
+    line-height: 1.6;
+  }
+
+
+  /* ---------- LIGHT SECTION ---------- */
+
+  .story-light {
+    background:
+      radial-gradient(
+        ellipse at 80% 20%,
+        rgba(255, 255, 255, 0.65),
+        transparent 55%
+      ),
+      linear-gradient(
+        135deg,
+        #e3e8f2,
+        #cbd4e5
+      );
+  }
+
+
+  /* ---------- CONTACT SECTION ---------- */
+
+  .story-outro {
+    min-height: 100svh;
+
+    padding:
+      110px
+      7%
+      25px;
+  }
+
+  .outro-content {
+    width: 100%;
+    margin: auto 0;
+  }
+
+  .outro-content .section-index {
+    margin-bottom: 35px;
+  }
+
+  .contact-actions {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+    margin-top: 28px;
+  }
+
+  .contact-actions .contact-button {
+    width: 100%;
+    max-width: 300px;
+    justify-content: space-between;
+  }
+
+  .contact-button {
+    min-height: 50px;
+    gap: 20px;
+    padding: 0 17px;
+    font-size: 9px;
+  }
+
+
+  /* ---------- FOOTER ---------- */
+
+  .immersive-footer {
+    display: flex;
+
+    flex-direction: row;
+    flex-wrap: wrap;
+
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 16px;
+
+    margin-top: 65px;
+    padding-top: 20px;
+  }
+
+  .immersive-footer > span {
+    order: 3;
+    width: 100%;
+
+    font-size: 8px;
+    line-height: 1.8;
+  }
+
+  .immersive-footer > a:last-child {
+    font-size: 8px;
+  }
+
+
+  /* ---------- HIDDEN INTRO ---------- */
+
+  .home-under-intro {
+    visibility: hidden;
+  }
+
+}
+
+
+/* ==========================================
+   SMALL MOBILE DEVICES
+========================================== */
+
+@media (max-width: 380px) {
+
+  .hero-screen {
+    padding-top: 145px;
+  }
+
+  .hero-name-row h1,
+  .hero-title h1 {
+    font-size: clamp(39px, 11.5vw, 46px);
+  }
+
+  .hero-meta {
+    font-size: 6px;
+  }
+
+  .hero-intro {
+    font-size: 12px;
+  }
+
+  .hero-description-row {
+    margin-top: 23px;
+    gap: 19px;
+  }
+
+  .story {
+    padding: 75px 6%;
+  }
+
+}
+
+
+/* ==========================================
+   LANDSCAPE MOBILE
+========================================== */
+
+@media (max-width: 700px) and (orientation: landscape) {
+
+  .hero-screen {
+    min-height: 680px;
+    padding-top: 140px;
+  }
+
+  .scene-stage img {
+    height: 90%;
+    width: 75%;
+  }
+
+}
+
+
+/* ==========================================
+   ACCESSIBILITY
+========================================== */
+
+@media (prefers-reduced-motion: reduce) {
+
+  .scene-stage img {
+    transform: none !important;
+  }
+
+}
+@media (max-width: 700px) {
+  .scene-stage img {
+    right: -14%;
+  }
+}
 
