@@ -1,4 +1,3 @@
-
 "use client";
 
 import { useEffect, useState } from "react";
@@ -36,6 +35,7 @@ export default function ScrollExperience() {
     gsap.registerPlugin(ScrollTrigger);
 
     const context = gsap.context(() => {
+      // Reveal elements as they enter the screen
       gsap.utils.toArray<HTMLElement>(".reveal").forEach((element) => {
         gsap.fromTo(
           element,
@@ -53,20 +53,19 @@ export default function ScrollExperience() {
           }
         );
       });
+// Portrait fades away as the user scrolls
+gsap.to(".scene-stage", {
+  opacity: 0,
+  ease: "none",
+  scrollTrigger: {
+    trigger: ".hero-screen",
+    start: "top top",
+    end: "bottom top",
+    scrub: 1,
+  },
+});
 
-      gsap.to(".scene-stage", {
-        scale: 0.72,
-        rotate: 8,
-        opacity: 0.48,
-        ease: "none",
-        scrollTrigger: {
-          trigger: ".story",
-          start: "top bottom",
-          end: "bottom bottom",
-          scrub: 1,
-        },
-      });
-
+      // Hero title moves upwards during scrolling
       gsap.to(".hero-title", {
         yPercent: -24,
         opacity: 0.25,
@@ -79,8 +78,10 @@ export default function ScrollExperience() {
         },
       });
 
+      // Story text animations
       gsap.utils.toArray<HTMLElement>(".story-screen").forEach((screen) => {
         const copy = screen.querySelector(".story-copy");
+
         if (!copy) return;
 
         gsap.fromTo(
@@ -128,9 +129,8 @@ export default function ScrollExperience() {
       </header>
 
       <div className="scene-stage" aria-hidden="true">
-         <img src="/images/vaseem.jpg.png" alt="" />
+        <img src="/images/vaseem.jpg.png" alt="" />
       </div>
-
 
       <section className="hero-screen" id="home">
         <div className="hero-meta">
@@ -271,55 +271,54 @@ export default function ScrollExperience() {
         </div>
       </section>
 
+      <section className="story story-outro" id="contact">
+        <div className="outro-content reveal">
+          <p className="section-index">04 / THE NEXT CONNECTION</p>
 
-<section className="story story-outro" id="contact">
-  <div className="outro-content reveal">
-    <p className="section-index">04 / THE NEXT CONNECTION</p>
+          <p className="section-eyebrow">
+            LET&apos;S MOVE IDEAS FORWARD
+          </p>
 
-    <p className="section-eyebrow">
-      LET&apos;S MOVE IDEAS FORWARD
-    </p>
+          <h2>
+            Every connection
+            <br />
+            starts with a <span>conversation.</span>
+          </h2>
 
-    <h2>
-      Every connection
-      <br />
-      starts with a <span>conversation.</span>
-    </h2>
+          <p className="body-copy">
+            Connect with Mohammed Vaseem to continue the conversation around
+            electronics, customer relationships, and engineering possibilities.
+          </p>
 
-    <p className="body-copy">
-      Connect with Mohammed Vaseem to continue the conversation around
-      electronics, customer relationships, and engineering possibilities.
-    </p>
+          <div className="contact-actions">
+            <a
+              className="contact-button"
+              href={linkedinUrl}
+              target="_blank"
+              rel="noreferrer"
+            >
+              CONNECT ON LINKEDIN <span>↗</span>
+            </a>
 
-    <div className="contact-actions">
-      <a
-        className="contact-button"
-        href={linkedinUrl}
-        target="_blank"
-        rel="noreferrer"
-      >
-        CONNECT ON LINKEDIN <span>↗</span>
-      </a>
+            <a
+              className="contact-button contact-email-button"
+              href="mailto:vaseemvathi@gmail.com?subject=Professional%20Enquiry"
+            >
+              EMAIL ME <span>↗</span>
+            </a>
+          </div>
+        </div>
 
-      <a
-        className="contact-button contact-email-button"
-        href="mailto:vaseemvathi@gmail.com?subject=Professional%20Enquiry"
-      >
-        EMAIL ME <span>↗</span>
-      </a>
-    </div>
-  </div>
+        <footer className="immersive-footer">
+          <a className="wordmark" href="#home">
+            V<span>.</span>
+          </a>
 
-  <footer className="immersive-footer">
-    <a className="wordmark" href="#home">
-      V<span>.</span>
-    </a>
+          <span>MOHAMMED VASEEM · PROFESSIONAL PORTFOLIO</span>
 
-    <span>MOHAMMED VASEEM · PROFESSIONAL PORTFOLIO</span>
-
-    <a href="#home">BACK TO TOP ↑</a>
-  </footer>
-</section>
-</main>
-);
+          <a href="#home">BACK TO TOP ↑</a>
+        </footer>
+      </section>
+    </main>
+  );
 }

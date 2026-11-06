@@ -1385,7 +1385,7 @@ textarea {
 
   .scene-stage {
 
-    opacity: 0.7;
+    opacity: 1;
 
   }
 
@@ -2708,3 +2708,50 @@ textarea {
   }
 }
 
+/* ==========================================
+   SCROLLING PORTRAIT LAYER
+========================================== */
+
+.scene-stage {
+  z-index: 2;
+  opacity: 1;
+  will-change: transform, opacity;
+}
+
+/* Keep the hero content above the portrait */
+.hero-screen {
+  z-index: 3;
+}
+
+/* Allow the portrait to appear above story backgrounds */
+.story {
+  z-index: auto;
+  isolation: auto;
+}
+
+/* Keep all story text above the moving portrait */
+.story-screen,
+.story-copy,
+.outro-content {
+  position: relative;
+  z-index: 3;
+}
+.scene-stage {
+  z-index: 2;
+}
+
+.hero-screen {
+  z-index: 3;
+}
+
+.story {
+  z-index: auto;
+  isolation: auto;
+}
+
+.story-screen,
+.story-copy,
+.outro-content {
+  position: relative;
+  z-index: 3;
+}
