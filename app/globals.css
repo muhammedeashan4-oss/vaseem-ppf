@@ -390,52 +390,23 @@ textarea {
 
 
 
-.hero-screen::before {
-
-  position: absolute;
-
-  inset: 0;
-
-  z-index: -1;
-
+ .hero-screen::before {
   background:
-
     linear-gradient(
-
       90deg,
-
-      #101629 0%,
-
-      rgba(16, 22, 41, 0.96) 25%,
-
-      rgba(16, 22, 41, 0.78) 43%,
-
-      rgba(16, 22, 41, 0.22) 76%,
-
+      rgba(16, 22, 41, 0.90) 0%,
+      rgba(16, 22, 41, 0.72) 35%,
+      rgba(16, 22, 41, 0.28) 70%,
       rgba(16, 22, 41, 0.12) 100%
-
     ),
-
     linear-gradient(
-
       0deg,
-
       #101629 0%,
-
-      transparent 24%,
-
-      transparent 80%,
-
-      rgba(16, 22, 41, 0.48) 100%
-
+      rgba(16, 22, 41, 0.82) 20%,
+      rgba(16, 22, 41, 0.12) 55%,
+      rgba(16, 22, 41, 0.35) 100%
     );
-
-  content: "";
-
-  pointer-events: none;
-
 }
-
 
 
 .hero-meta {
@@ -2126,6 +2097,27 @@ textarea {
 
   text-decoration: none;
 
+}
+.scene-stage img {
+  opacity: 0.95;
+
+  -webkit-mask-image: linear-gradient(
+    to bottom,
+    transparent 0%,
+    rgba(0, 0, 0, 0.4) 5%,
+    black 20%,
+    black 85%,
+    transparent 100%
+  );
+
+  mask-image: linear-gradient(
+    to bottom,
+    transparent 0%,
+    rgba(0, 0, 0, 0.4) 5%,
+    black 20%,
+    black 85%,
+    transparent 100%
+  );
 }
 
 
